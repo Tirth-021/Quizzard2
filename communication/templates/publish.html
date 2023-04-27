@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Comptible" content="ie=edge">
+    <title>Publish</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<form action="/communication/publish_quiz/">
+{% csrf_token %}
+
+     <table class="table">
+<thead>
+<tr>
+<th>Quiz Title</th>
+<th>Quiz Name</th>
+<th>Quiz Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quiz {{quiz.quiz_id}}</td>
+<td>{{quiz.quiz_name}}</td>
+<td>{{quiz.description}}</td>
+</tr>
+
+</tbody>
+</table>
+<input type="hidden" name="quiz_id" value="{{quiz.quiz_id}}">
+<button type="submit">Publish</button>
+</form>
+</body>
+</html>

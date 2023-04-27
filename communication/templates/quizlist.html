@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'Host.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quizzard</title>
+      {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+{% block content %}
+<table class="table">
+<thead>
+<tr>
+<th>Quiz Title</th>
+<th>Quiz Description</th>
+</tr>
+</thead>
+<tbody>
+{% for data in form %}
+
+<tr>
+<td><a href="{% url 'publish' %}?quiz_id={{data.quiz_id}}">Quiz {{data.quiz_id}}</a></td>
+    <td>{{data.quiz_name}}</td>
+    <td><button class="status-btn" type="button">Active</button></td>
+    <td><input type="hidden" name="quiz_id" value="{{data.quiz_id}}"></td>
+</tr>
+
+
+{% endfor %}
+</tbody>
+</table>
+{% endblock content %}
+</body>
+</html>

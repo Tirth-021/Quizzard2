@@ -1,0 +1,33 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Comptible" content="ie=edge">
+    <title>Login Page</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<h1 style="text-align: center">Login</h1>
+<form method="POST" action="{% url 'login' %}" style="text-align: center; margin-left: 34%; margin-top: 2%">
+<fieldset style="width: 500px;">
+    
+    {% csrf_token %}
+    {{ form | crispy }}
+    <br>
+    <br>
+    <button type="submit" >Submit</button>
+
+       
+</fieldset>
+<br>
+<button style="margin-right:770px">Click here to sign up</button>
+</form>
+</body>
+</html>
