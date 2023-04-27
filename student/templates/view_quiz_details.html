@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quizzard</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<form method = "POST" action="{% url 'view_quiz_student'%}">
+{% csrf_token %}
+<br>
+    <br>
+    <br>
+<table class="table">
+<thead>
+<tr>
+<th>Game Pin</th>
+<th>Quiz Name</th>
+<th>Time per question</th>
+<th>Points per Question</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>{{form.quiz_id}}</td>
+    <td>{{form.quiz_name}}</td>
+    <td>{{form.tpq}}</td>
+    <td>{{form.ppq}}</td>
+    <td><input type="hidden" name="gamepin" value="{{form.quiz_id}}"></td>
+    <td><input type="hidden" name="marks" value="{{marks}}"></td>
+</tr>
+
+
+</tbody>
+</table>
+
+<button>Start the quiz</button>
+
+</form>
+</body>
+</html>

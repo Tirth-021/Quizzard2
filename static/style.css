@@ -1,0 +1,180 @@
+body{
+background-color: #a7c7e7;
+
+}
+
+main {
+max-width: 960px;
+margin: 0 auto;
+padding: 20px;
+background-color: #87CEFA; /* set background color to light blue */
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-page{
+text-align: center;
+}
+/* Change background color of the navigation bar */
+.navbar {
+background-color: #f2f2f2;
+padding: 10px 20px;
+}
+
+/* Change color of the navigation links */
+.navbar-nav li a {
+color: #333;
+margin-right: 15px;
+}
+
+/* Add hover effect to the navigation links */
+.navbar-nav li a:hover {
+color: #fff;
+background-color: #ffc107;
+}
+
+/* Change color of the active navigation link */
+.navbar-nav li.active a {
+color: #fff;
+background-color: #333;
+}
+
+.navbar-nav {
+margin-left: auto;
+}
+
+.nav-text{
+    text-align: center;
+    margin-left: auto;
+    margin-right : 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* Style the form labels */
+label {
+font-weight: bold;
+}
+
+/* Style the form inputs */
+.form-control {
+margin: 5px 0;
+border-radius: 5px;
+border: 1px solid #ccc;
+padding: 5px;
+}
+
+
+button {
+background: #0a3246;
+border-radius: 4px;
+color: white;
+text-transform: uppercase;
+padding: 12px 54px;
+width: fit-content;
+}
+.inputBox {
+background: #f2f4f7;
+padding: 20px 16px;
+border-radius: 8px;
+width: 378px;
+border: 1px solid #f2f4f7;
+color: #818181;
+}
+
+/* Style for status button */
+.status-btn {
+display: inline-block;
+border: none;
+color: #fff;
+background-color: #28a745;
+padding: 0.5rem;
+font-size: 0.8rem;
+font-weight: bold;
+text-align: center;
+text-decoration: none;
+cursor: pointer;
+border-radius: 0.25rem;
+transition: background-color 0.3s ease-in-out;
+}
+
+.status-btn.inactive {
+background-color: #dc3545;
+}
+
+.status-btn:hover {
+background-color: #218838;
+}
+
+.status-btn.inactive:hover {
+background-color: #c82333;
+}
+
+
+
+.table {
+width: 100%;
+margin-bottom: 1rem;
+color: #212529;
+border-collapse: collapse;
+}
+
+.table th,
+.table td {
+padding: 0.75rem;
+vertical-align: top;
+border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+vertical-align: bottom;
+border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+border-top: 2px solid #dee2e6;
+}
+
+.table .table {
+background-color: #fff;
+}
+
+.table-sm th,
+.table-sm td {
+padding: 0.3rem;
+}
+
+.table-bordered {
+border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+border: 1px solid #dee2e6;
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+border-bottom-width: 2px;
+}
+
+.table-borderless th,
+.table-borderless td,
+.table-borderless thead th,
+.table-borderless tbody + tbody {
+border: 0;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-hover tbody tr:hover {
+background-color: rgba(0, 0, 0, 0.075);
+}
+
+#leaderboard {
+float: right;
+margin-left: 20px;
+width: 300px;
+}

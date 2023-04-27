@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Comptible" content="ie=edge">
+    <title>Home</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+ <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        Quizzard&#169;
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          {% block authentication %}
+          <li class="nav-item">
+            <a class="nav-link" href="/authentication/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/authentication/signup">Signup</a>
+          </li>
+            {% endblock %}
+        </ul>
+      </div>
+    </nav>
+
+ {% block maincontent %}
+
+  <main>
+
+ <p> Welcome to Quizzard.</p>
+ <p>An app that simplifies the learning and makes it interactive and fun.</p>
+ <p>Providing support for a wide variety of age groups right from schools to colleges.</p>
+ </main>
+
+{% endblock %}
+
+<!-- <div class="main-page">-->
+<!--     <h1>Welcome to Quizzard</h1>-->
+
+<!--<a href="/communication/Host" >Show Quiz</a>-->
+<!--<br>-->
+<!--<br>-->
+
+
+<!--<button onclick="func()">Create Quiz </button>-->
+<!--<script>-->
+<!--function func()-->
+<!--{-->
+<!-- window.location.href = "/questions/quiz_info";-->
+<!--}-->
+<!--</script>-->
+
+<!-- </div>-->
+
+</body>
+</html>

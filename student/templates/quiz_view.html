@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quizzard</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<!--<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is the Quiz page </h1>-->
+
+<!--<form method = "POST" action="{% url 'view_quiz_details'%}">-->
+<!--{% csrf_token %}-->
+<!--<br>-->
+<!--    <br>-->
+<!--    <br>-->
+<!--<input type="text" name="gamepin" placeholder="Please Enter Gamepin">-->
+
+<!--<button>Enter</button>-->
+
+<!--</form>-->
+<form method = "POST" action="{% url 'view_quiz_details' %}">
+{% csrf_token %}
+<div class="container mt-3 p-5">
+            <h3>Quizzard</h3>
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <div class="mb-2">
+                        <label for="gamepin">Enter the game pin to connect to quiz:</label>
+                        <input type="text" class="form-control" id="gamepinInput" name="gamepin" placeholder="Game pin">
+                    </div>
+                    <button class="btn btn-success" id="quizConnect">Connect</button>
+                </div>
+                <div class="col-12 col-md-4">
+                    <label for="quizSelect">Active quizzes</label>
+                    <select multiple class="form-control" id="quizselect">
+                        {% for i in form %}
+                            <option>{{ i.quiz_id }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+</div>
+</form>
+
+</body>
+</html>

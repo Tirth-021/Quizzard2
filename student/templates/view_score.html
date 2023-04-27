@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quizzard</title>
+  {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<form>
+{% csrf_token %}
+<br>
+<table class="table">
+<thead>
+<tr>
+<th>Scores</th>
+<!--<th>Quiz Description</th>-->
+<!--<th>Time per question</th>-->
+<!--<th>Points per Question</th>-->
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>Your score is {{marks}}</td>
+<!--    <td>{{form.quiz_name}}</td>-->
+<!--    <td>{{form.tpq}}</td>-->
+<!--    <td>{{form.ppq}}</td>-->
+    <td><input type="hidden" name="gamepin" value="{{context.gamepin}}"></td>
+    <td><input type="hidden" name="marks" value="{{context.marks}}"></td>
+</tr>
+
+
+</tbody>
+</table>
+
+<button>Finish</button>
+
+</form>
+</body>
+</html>

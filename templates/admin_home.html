@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% extends "home.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Home</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+        Quizzard&#169;
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          {% block authentication %}
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="/authentication/login">Login</a>-->
+<!--          </li>-->
+
+         <li class="nav-item">
+           <a class="nav-link" href="/logout">Logout</a>
+          </li>
+
+         <li class="nav-item">
+             <p class="nav-link">Welcome {{user.username}}</p>
+         </li>
+
+
+            {% endblock %}
+        </ul>
+      </div>
+    </nav>
+
+
+
+<!--  <main>-->
+
+<!-- <p> Welcome to Quizzard.</p>-->
+<!-- <p>An app that simplifies the learning and makes it interactive and fun.</p>-->
+<!-- <p>Providing support for a wide variety of age groups right from schools to colleges.</p>-->
+<!-- </main>-->
+
+ {% block maincontent %}
+
+ <div class="main-page">
+     <h1>Welcome to Quizzard</h1>
+
+<!--<a href="/communication/Host" >Show Quiz</a>-->
+<!--<br>-->
+<!--<br>-->
+
+
+<button onclick="func()"> Add Teachers</button>
+<script>
+function func()
+{
+ window.location.href = "/administrator/add_teachers";
+}
+</script>
+
+ </div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quizzard</title>
+</head>
+<body>
+{% block content %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<div class="container ">
+    <h1>Welcome to Quizzard</h1>
+    <div align="right " id="displaytimer"><b>Timer: {{tpq}} seconds</b></div>
+    <form method='POST' action="{% url 'view_next_question'%}">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-12 col-md-8">
+
+                <div class="form-group">
+                    <label for="question">{{question.question}}</label>
+                </div>
+                <div class="form-check">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="response" id="gridRadios1"
+                               value="{{options.0.option}}" checked>
+                        <label class="form-check-label" for="gridRadios1">
+                            {{options.0.option}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="response" id="gridRadios2"
+                               value="{{options.1.option}}">
+                        <label class="form-check-label" for="gridRadios2">
+                            {{options.1.option}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="response" id="gridRadios3"
+                               value="{{options.2.option}}">
+                        <label class="form-check-label" for="gridRadios1">
+                            {{options.2.option}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="response" id="gridRadios4"
+                               value="{{options.3.option}}">
+                        <label class="form-check-label" for="gridRadios2">
+                            {{options.3.option}}
+                        </label>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <table id="leaderboard">
+                    <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{username}}</td>
+                        <td>{{marks}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <input type='hidden' name="gameid" value="{{form.quiz_id}}">
+            <input type='hidden' name="question_number" value="{{question_number}}">
+            <input type='hidden' name="number_of_question" value="{{number_of_question}}">
+            <input type='hidden' name="marks" value="{{marks}}">
+            <input type='hidden' name="score" value="{{score}}">
+            <input type="hidden" name="username" value="{{username}}">
+            <br>
+
+
+        </div>
+        <button type="submit" id="submit" class="btn btn-primary">Next</button>
+    </form>
+
+
+    {% block script %}
+    <script>
+
+        function execute() {
+            const timer = document.getElementById('displaytimer')
+            console.log(timer.textContent)
+            const inputtag = document.getElementById('timer')
+            var t = {{tpq}}
+            setInterval(() => {
+                t -= 1
+                timer.innerHTML = "<b>Timer: " + t + " seconds</b>"
+                inputtag.value = t
+            }, 1000)
+            setTimeout(() => {
+                alert("Time's up");
+                document.getElementById("submit").click();
+            }, t * 1000);
+        }
+
+        execute();
+
+        const socket = new WebSocket('ws://' + window.location.host + '/ws/leaderboard/');
+        socket.onmessage = function (e) {
+            const data = JSON.parse(e.data);}
+    </script>
+    {% endblock script %}
+
+</div>
+{% endblock %}
+<!--<script src="{% static 'leaderboard.js' %}"></script>-->
+</body>
+</html>
